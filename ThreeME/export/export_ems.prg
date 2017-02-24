@@ -1,0 +1,5 @@
+smpl 2004 2100
+
+write(t=xls,na=.,d=c,dates,range="Eviews" )  "L:\3 - MA3\Energie\Modeles\Modele3ME\1 THREEME V2C\scenario-AMS2-TCO 1000euros-rc\exports\exports_ems" ems_tot
+ems_hh_22+ems_sec_22_01+ems_sec_22_02+ems_sec_22_03+ems_sec_22_04+ems_sec_22_05+ems_sec_22_06+ems_sec_22_07+ems_sec_22_08+ems_sec_22_09+ems_sec_22_12+ems_sec_22_13+ems_sec_22_14+ems_sec_22_15+ems_sec_22_16+ems_sec_22_17+ems_sec_22_18+ems_sec_22_19+ems_sec_22_20 ems_hh_24+ems_sec_2401+ems_sec_24_01+ems_sec_24_02+ems_sec_24_03+ems_sec_24_04+ems_sec_24_05+ems_sec_24_06+ems_sec_24_07+ems_sec_24_08+ems_sec_24_09+ems_sec_24_10+ems_sec_24_11+ems_sec_24_12+ems_sec_24_13+ems_sec_24_14+ems_sec_24_15+ems_sec_24_16+ems_sec_24_17+ems_sec_24_18+ems_sec_24_19+ems_sec_24_20 ems_sec_2302+ems_sec_2303+ems_sec_2303 ems_hh_21+ems_sec_21_05+ems_sec_21_06+ems_sec_21_07+ems_sec_21_08+ems_sec_21_10+ems_sec_21_12+ems_sec_21_19+ems_sec_21_20 ems_dc_03+04 ems_dc_03+04 ems_hh_21+ems_hh_24+ems_hh_22*(@elem(pener_buil_h01_22, 2006)*ener_buil_h01_22)/exp_22_h01 ems_hh_22*(exp_auto_h01_22/exp_22_h01)
+

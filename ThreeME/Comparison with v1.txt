@@ -1,0 +1,78 @@
+Log of negative number for this variable:
+
+Payback_REHAB_H01_CF  = ( UC_K_REHAB_H01_CF  * BUIL_D_H01_CF  - UC_K_H01_CF  * BUIL_D_H01_CF )  / ( UC_E_H01_CF  - UC_E_REHAB_H01_CF )  - 1
+
+
+
+# Commercial and transport import margins
+
+ThreeME v1
+
+PMTM[c]*MTM[c] = sum(PMM[s]*MTM[c, s] on s in 14 16 17 18) where c in 01 02 03 04 05 06 07 08 09 10 11 12 13 21 22 23 24
+
+PMCM[c]*MCM[c] = PMM[19]*MCM[c, 19] where c in 01 02 03 04 05 06 07 08 09 10 11 12 13 21 22 23 24
+
+
+
+# Exogenous activity for automobile sector
+
+ThreeME v1
+
+dlog(C_03) = dlog(Oth_C)
+
+
+
+# Buildings retrofit
+
+ThreeME v1
+
+fac_conv_buil = (1-A_pass)*fac_conv_buil_eff + A_pass*fac_conv_buil_pass
+BUIL_pass=(1-Tdecl_buil_eff)*BUIL_pass(-1)+ (BUIL_oth=1)*(I_HOUS_eff*fac_conv_eff-buil_oth_renov) + I_buil*fac_conv_buil*A_pass
+
+
+
+# Marginal propensity to consume
+
+ThreeME v1
+
+TCF=alpha_tcf_rd*d(log(RD(-1)/PH(-1)))+ alpha_tcf_u*d(U)+alpha_tcf_r*d(R-infl_fr)
+
+
+
+# Wage setting
+
+ThreeME v2
+
+d(log(W_S_n[s])) = 1.0*d(log(P_e)) + 1.0*d(log(PROG_L[s])) - 0 *(sum(Y[c, s]{-1}/Y[s]{-1}*M[c]{-1}/(YQ[c]{-1}+M[c]{-1})*d(log(PM[c]/PY[s])) if Y[c, s] <> 0 on c)) - 0*UnR_TOT - 0.66*d(UnR_TOT) + 0*d(log(L_S[s]) - log(L))+DNAIRU*0 if W_S_n[s] <> 0
+
+ThreeME v1
+
+CFS= 1*(1+tce)/((1-tcss)*(1-tir))
+log(Wdes_{%sec}) = 1.0*log(PH) + log(CFS) - log(1+tce) - 1.8*U + 1.0*log(PROG)'-0.51*((log(PH)-log(PVA)))
+
+
+
+# Adjustments
+
+ThreeME v2
+
+log(X)= lambda0 * log(Xn) + (1 - lambda0) * (log(X{-1}) + dlog(Xe))
+dlog(Xe) = lambda1 * dlog(Xe{-1}) + lambda2 * dlog(X{-1}) + lambda3 * dlog(Xn) + lambda4 * dlog(X{+1})
+
+ThreeME v1
+
+dlog(X) = lambda01 * dlog(X{-1}) + lambda02 * dlog(Xn) - lambda03 * log(Xn{-1}/X{-1})
+
+
+=> See ComparaisonAjustementGeometriqueECM01/02.pdf in A_Conserver/Scans
+
+
+# Marginal propensity to save
+
+ThreeME v2
+
+d(MPS[h])= 0 * d(UNR_TOT) + 0 * d(R - infl_FR) + 0 * d(DEBT_G_VAL / (PGDP * GDP))
+
+ThreeME v1
+
+TCF = 0.1 * d(log(RD(-1)/PH(-1))) + 0.01 * d(U) + 0 * d(R-infl_fr)
